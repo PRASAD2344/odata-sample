@@ -3,7 +3,6 @@ import { Product } from "./Product";
 
 export class Category{
     @Edm.Key
-    @Edm.Computed
     @Edm.Guid
     _id:string
 
