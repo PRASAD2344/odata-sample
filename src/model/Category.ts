@@ -1,12 +1,11 @@
 import { Edm } from "odata-v4-server";
 import { Product } from "./Product";
-import { ObjectID } from "mongodb";
 
 export class Category{
     @Edm.Key
     @Edm.Computed
-    @Edm.String
-    _id:ObjectID
+    @Edm.Guid
+    _id:string
 
     @Edm.String
     Description:string

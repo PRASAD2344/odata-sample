@@ -1,20 +1,19 @@
 import { Edm } from "odata-v4-server";
 import { Category } from "./Category";
-import { ObjectID } from "mongodb";
 
 export class Product{
   @Edm.Key
   @Edm.Computed
-  @Edm.String
-  _id:ObjectID
+  @Edm.Guid
+  _id:string
 
   @Edm.EntityType(Edm.ForwardRef(() => Category))
   @Edm.Partner("Products")
   Category:Category
 
-  @Edm.String
+  @Edm.Guid
   @Edm.Required
-  CategoryId:ObjectID
+  CategoryId:string
 
   @Edm.Boolean
   Discontinued:boolean
