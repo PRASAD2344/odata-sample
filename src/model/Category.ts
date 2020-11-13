@@ -12,7 +12,7 @@ export class Category{
     @Edm.String
     Name:string
 
-    @Edm.Collection(Edm.EntityType(Product))
-    @Edm.Partner("Category")
+    @Edm.Collection(Edm.EntityType(Edm.ForwardRef(() => Product)))
+    @Edm.Partner("Categories")
     Products:Product[]
 }
