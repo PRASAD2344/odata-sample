@@ -13,14 +13,14 @@ app.use((req, res, next) => {
     req.headers.accept += ";charset=utf-16";
   }
   req.headers["accept-charset"] = undefined;
-  next()
+  next();
 })
 
-app.set("json replacer", (key,value) => {
+app.set("json replacer", (key, value) => {
   if(this && typeof(key) === "string" && key.indexOf("@odata.type") > -1){
-    value = undefined
+    value = undefined;
   }
-  return value
+  return value;
 });
 
 app.use("/", NorthwindServer.create());
