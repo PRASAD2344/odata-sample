@@ -16,12 +16,30 @@ app.use((req, res, next) => {
   next();
 })
 
-app.set("json replacer", (key, value) => {
-  if(this && key === "@odata.type"){
-  //if(this && typeof(key) === "string" && key.indexOf("@odata.type") > -1){
-    value = undefined;
-  }
-  return value;
-});
+let keysOrder = [
+  "@odata.context",
+  "@odata.type",
+  "@odata.id",
+  "@odata.editLink",
+  "_id@odata.type",
+  "_id",
+  "CategoryId@odata.type",
+  "CategoryId",
+  "Discontinued",
+  "Name",
+  "QuantityPerUnit",
+  "UnitPrice@odata.type",
+  "UnitPrice",
+  "Category@odata.associationLink",
+  "Category@odata.navigationLink",
+  "Category",
+  "Description",
+  "Products@odata.associationLink",
+  "Products@odata.navigationLink",
+  "value",
+  "Products",
+]
+
+app.set("json replacer", keysOrder);
 
 app.use("/", NorthwindServer.create());
