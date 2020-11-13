@@ -17,7 +17,8 @@ app.use((req, res, next) => {
 })
 
 app.set("json replacer", (key, value) => {
-  if(this && typeof(key) === "string" && key.indexOf("@odata.type") > -1){
+  if(this && key === "@odata.type"){
+  //if(this && typeof(key) === "string" && key.indexOf("@odata.type") > -1){
     value = undefined;
   }
   return value;
