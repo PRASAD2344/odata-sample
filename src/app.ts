@@ -10,7 +10,8 @@ app.listen(3000);
 app.use((req, res, next) => {
   // tslint:disable-next-line: no-string-literal
   if(req.headers.accept && req.headers.accept.indexOf("charset") < 0){
-    req.headers.accept += ";charset=utf-16";
+    //req.headers.accept += ";charset=utf-16";
+    req.headers.accept = "odata.metadata=none;charset=utf-16";
   }
   req.headers["accept-charset"] = undefined;
   next();
