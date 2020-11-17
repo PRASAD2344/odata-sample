@@ -1,6 +1,6 @@
 import express from "express";
 import { NorthwindServer } from "./server";
-
+import basicAuth = require("express-basic-auth");
 
 const app = express();
 
@@ -39,6 +39,11 @@ let keysOrder = [
   "value",
   "Products",
 ]
+
+app.use(basicAuth({
+  users: { [process.env.userName] : process.env.password }
+}))
+
 
 app.set("json replacer", keysOrder);
 
