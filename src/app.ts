@@ -7,7 +7,11 @@ const app = express();
 
 app.listen(3000);
 
-app.use(morgan("combined"))
+morgan.token('req-headers', (req,res) => {
+  return JSON.stringify(req.headers)
+});
+
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" :req-headers'))
 
 app.use((req, res, next) => {
   // tslint:disable-next-line: no-string-literal
