@@ -1,11 +1,13 @@
 import express from "express";
 import { NorthwindServer } from "./server";
 import basicAuth = require("express-basic-auth");
+import morgan = require("morgan");
 
 const app = express();
 
 app.listen(3000);
 
+app.use(morgan("combined"))
 
 app.use((req, res, next) => {
   // tslint:disable-next-line: no-string-literal

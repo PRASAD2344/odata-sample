@@ -27,6 +27,7 @@
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "mongodb": "^3.1.1",
+    "morgan": "^1.10.0",
     "odata-v4-mongodb": "^0.1.12",
     "odata-v4-server": "^0.2.13"
   }
