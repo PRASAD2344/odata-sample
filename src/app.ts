@@ -47,9 +47,9 @@ let keysOrder = [
   "Products",
 ]
 
-app.use(basicAuth({
+/*app.use(basicAuth({
   users: { [process.env.userName] : process.env.password }
-}))
+}))*/
 
 
 app.set("json replacer", keysOrder);
